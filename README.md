@@ -115,3 +115,63 @@ cat branching/merge.sh
 После выполнения этих команд содержимое файла merge.sh будет заменено на новое.
 **Проверяем изменения, используя команду** 
 cat branching/merge.sh.
+
+Шаг 3. Создайте коммит merge: @ instead *, отправьте изменения в репозиторий.  
+Шаг 4. Разработчик подумал и решил внести ещё одно изменение в merge.sh:  
+```bash
+#!/bin/bash
+# display command line options
+
+count=1
+while [[ -n "$1" ]]; do
+    echo "Parameter #$count = $1"
+    count=$(( $count + 1 ))
+    shift
+done
+```
+### «Решение»
+
+Шаг 5. Создайте коммит merge: use shift и отправьте изменения в репозиторий.  
+
+Выполните следующие шаги в терминале для продолжения работы с файлом merge.sh в ветке git-merge:
+
+*Шаг 3: Создание коммита с сообщением "merge: @ instead ":
+
+
+**Убеждаемся, что вы находимсся в ветке git-merge**  
+git checkout git-merge
+
+**Добавляем изменения в индекс Git и создайте коммит**  
+git add branching/merge.sh
+git commit -m "merge: @ instead *"
+
+**Отправляем изменения в удаленный репозиторий**    
+git push origin git-merge
+Шаг 4: Внесение дополнительного изменения в файл merge.sh:  
+
+**Открываем файл merge.sh для редактирования**  
+```bash
+cat <<EOT > branching/merge.sh
+#!/bin/bash
+# display command line options
+
+count=1
+while [[ -n "\$1" ]]; do
+    echo "Parameter #\$count = \$1"
+    count=\$(( count + 1 ))
+    shift
+done
+EOT
+```
+**Проверяем изменения**    
+cat branching/merge.sh
+Шаг 5: Создание коммита с сообщением "merge: use shift" и отправка изменений в репозиторий:  
+
+**Добавляем изменения в индекс Git и создайте коммит**  
+git add branching/merge.sh
+git commit -m "merge: use shift"
+
+**Отправляем изменения в удаленный репозиторий**  
+git push origin git-merge
+После выполнения этих команд вы будете иметь два коммита в ветке git-merge, которые содержат изменения в файле merge.sh, и оба коммита будут отправлены в ваш удаленный репозиторий.
+

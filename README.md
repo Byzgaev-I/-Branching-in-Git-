@@ -194,7 +194,7 @@ echo "====="
 **Решение**
 
 **Обновляем содержимое файла rebase.sh с новым кодом**  
-```
+```bash
 cat <<EOT > branching/rebase.sh
 #!/bin/bash
 # display command line options
@@ -208,14 +208,15 @@ done
 echo "====="
 EOT
 ```
-# Проверьте изменения
+
+**Проверяем изменения**
 cat branching/rebase.sh
 
-# Добавьте измененный файл в индекс Git и создайте коммит
+**Добавляем измененный файл в индекс Git и создайте коммит**    
 git add branching/rebase.sh
-git commit -m "Update rebase.sh to use \$@ instead of \$* and add echo ====="
+git commit -m "Update rebase.sh to use \$@ instead of \$* and add echo ====="  
 
-# Отправьте изменения в ветку main на удаленный репозиторий
+**Отправьте изменения в ветку main на удаленный репозиторий**  
 git push origin main
 
 

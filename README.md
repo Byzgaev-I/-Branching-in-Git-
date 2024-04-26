@@ -90,3 +90,26 @@ for param in "$@"; do
     count=$(( $count + 1 ))
 done
 ```
+Чтобы подготовить файл merge.sh в новой ветке git-merge, выполняем следующие команды в терминале:
+
+**Убедитесь, что вы находитесь в каталоге вашего репозитория**
+cd devops-netology
+
+**Создайте новую ветку git-merge и переключитесь на неё**
+git checkout -b git-merge
+
+**Замените содержимое файла merge.sh на новое**
+```bash
+echo '#!/bin/bash
+display command line options
+
+count=1
+for param in "$@"; do
+    echo "\$@ Parameter #$count = $param"
+    count=$(( $count + 1 ))
+done' > branching/merge.sh
+```
+
+**Проверьте изменения в файле**
+cat branching/merge.sh
+После выполнения этих команд содержимое файла merge.sh будет заменено на новое. Вы можете проверить изменения, используя команду cat branching/merge.sh.

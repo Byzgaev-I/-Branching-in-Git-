@@ -193,7 +193,8 @@ echo "====="
 ```
 **Решение**
 
-**Обновляем содержимое файла rebase.sh с новым кодом**  
+**Обновляем содержимое файла rebase.sh с новым кодом**   
+
 ```bash
 cat <<EOT > branching/rebase.sh
 #!/bin/bash
@@ -209,14 +210,75 @@ echo "====="
 EOT
 ```
 
-**Проверяем изменения**
+**Проверяем изменения**  
 cat branching/rebase.sh
 
-**Добавляем измененный файл в индекс Git и создайте коммит**    
+**Добавляем измененный файл в индекс Git и создайте коммит**      
 git add branching/rebase.sh
-git commit -m "Update rebase.sh to use \$@ instead of \$* and add echo ====="  
+git commit -m "Update rebase.sh to use \$@ instead of \$* and add echo ====="    
 
-**Отправьте изменения в ветку main на удаленный репозиторий**  
+**Отправьте изменения в ветку main на удаленный репозиторий**    
 git push origin main
+
+**Шаг 3. Отправляем изменённую ветку main в репозиторий.**
+Отправьте изменения в ветку main на удаленный репозиторий  
+git push origin main
+
+**Подготовка файла rebase.sh**
+Шаг 1. Предположим, что теперь другой участник нашей команды не сделал git pull либо просто хотел ответвиться не от последнего коммита в main, а от коммита, когда мы только создали два файла merge.sh и rebase.sh на первом шаге.
+Для этого при помощи команды git log найдём хеш коммита prepare for merge and rebase и выполним git checkout на него так: git checkout 8baf217e80ef17ff577883fda90f6487f67bbcea (хеш будет другой). Шаг 2. Создадим ветку git-rebase, основываясь на текущем коммите. Шаг 3. И изменим содержимое файла rebase.sh на следующее, тоже починив скрипт, но немного в другом стиле
+
+
+Шаг 1. Предположим, что теперь другой участник нашей команды не сделал git pull либо просто хотел ответвиться не от последнего коммита в main, а от коммита, когда мы только создали два файла merge.sh и rebase.sh на первом шаге.
+Для этого при помощи команды git log найдём хеш коммита prepare for merge and rebase и выполним git checkout на него так: git checkout 8baf217e80ef17ff577883fda90f6487f67bbcea (хеш будет другой). Шаг 2. Создадим ветку git-rebase, основываясь на текущем коммите. Шаг 3. И изменим содержимое файла rebase.sh на следующее, тоже починив скрипт, но немного в другом стилеШаг 4. Отправим эти изменения в ветку git-rebase с комментарием git-rebase 1.
+
+Шаг 5. И сделаем ещё один коммит git-rebase 2 с пушем, заменив echo "Parameter: $param" на echo "Next parameter: $param".
+
+**Переходим в ветку main для поиска нужного коммита**    
+git checkout main
+
+**Находим хеш коммита с сообщением "prepare for merge and rebase" при помощи git log**  
+git log --oneline
+
+**После нахождения нужного хеша коммита, выполняем checkout на этот коммит**
+
+**Заменяем 'commit_hash' на найденный хеш коммита**  
+git checkout commit_hash
+
+Создание ветки git-rebase:  
+Создаем новую ветку git-rebase на основе текущего коммита  
+git checkout -b git-rebase
+
+Изменяем содержимого файла rebase.sh:
+
+Проверяем изменения  
+cat branching/rebase.sh
+
+Добавляем изменения в индекс и создайте коммит с комментарием "git-rebase 1"  
+git add branching/rebase.sh
+git commit -m "git-rebase 1"
+
+Отправляем изменения в ветку git-rebase на удаленный репозиторий  
+git push -u origin git-rebase
+
+ Создание второго коммита "git-rebase 2":
+
+ Заменяем строку в файле rebase.sh     
+sed -i 's/Parameter: /Next parameter: /' branching/rebase.sh  
+
+Заменяем строку в файле rebase.sh  
+sed -i 's/Parameter: /Next parameter: /' branching/rebase.sh  
+
+Добавляем изменения в индекс и создайте второй коммит с комментарием "git-rebase 2"  
+git add branching/rebase.sh  
+git commit -m "git-rebase 2"  
+
+Отпраляем изменения в ветку git-rebase на удаленный репозиторий
+git push
+
+![Image](https://github.com/Byzgaev-I/-Branching-in-Git-/blob/main/5.png)
+
+
+
 
 

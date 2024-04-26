@@ -18,7 +18,7 @@ for param in "$*"; do
 done
 Этот скрипт отображает на экране все параметры одной строкой, а не разделяет их.
 ```
-### Задание «Решение»
+### «Решение»
 
 Для начала, давайте создадим каталог branching и добавим в него два файла скриптов merge.sh и rebase.sh с одинаковым содержимым, как указано в задании. 
 Выполним следующие команды в терминале:
@@ -57,5 +57,22 @@ done' > rebase.sh
 
 Делаем файлы скриптов исполняемыми  
 chmod +x merge.sh rebase.sh
+
+Шаг 2. Создадим коммит с описанием prepare for merge and rebase и отправим его в ветку main.
+
+Для того чтобы создать коммит с описанием "prepare for merge and rebase" и отправить его в ветку main, выполняем следующие команды в терминале:
+
+Убедждаемся, что вы находимся в каталоге нашего репозитория и в ветке main  
+cd devops-netology
+git checkout main
+
+Добавляем новые файлы в индекс Git  
+git add branching/merge.sh branching/rebase.sh
+
+Создайем коммит с заданным описанием
+git commit -m "prepare for merge and rebase"
+
+Отправляем коммит в ветку main на удаленный репозиторий
+git push origin main
 
 ![Image](https://github.com/Byzgaev-I/-Branching-in-Git-/blob/main/1-1.png)

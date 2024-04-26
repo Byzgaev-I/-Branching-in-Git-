@@ -58,4 +58,4 @@ done' > rebase.sh
 Делаем файлы скриптов исполняемыми  
 chmod +x merge.sh rebase.sh
 
-![Image](https://github.com/Byzgaev-I/Monitoring-System-Zabbix-1/blob/main/Авторизация.png))
+![Image](https://github.com/Byzgaev-I/-Branching-in-Git-/blob/main/1-1.png)

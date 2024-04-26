@@ -285,6 +285,64 @@ Merge
 В результате получаем такую схему:
 ![Image](https://github.com/Byzgaev-I/-Branching-in-Git-/blob/main/6.png)
 
+**Rebase**
+
+Чтобы выполнить rebase ветки git-rebase на main и решить возникающие конфликты, делаем следующее:
+
+Шаг 1: Переключаемся на ветку git-rebase и начинаем rebase на main:    
+Переключаемся на ветку git-rebase
+git checkout git-rebase
+
+Начинаем процесс rebase интерактивно на ветку main
+git rebase -i main
+
+В нашем случае, после редактирования файла rebase.sh должно получиться следующее содержимое, в зависимости от того, какие изменения вы хотите сохранить:
+
+После редактирования файла сохраняем его и продолжаем процесс rebase:  
+Добавляем измененный файл в индекс  
+git add branching/rebase.sh  
+
+Продолжаем процесс rebase    
+git rebase --continue  
+
+Отправляем изменения в удаленный репозиторий
+git push -f origin git-rebase
+
+Шаг 7 и Шаг 8  
+
+Переключаемся на ветку main  
+git checkout main
+
+Убеждаемся, что ваша локальная ветка main синхронизирована с удаленным репозиторием  
+git pull origin main
+
+Сливаем ветку git-rebase в main с помощью Fast-forward  
+git merge git-rebase
+
+Отправляем изменения из main в удаленный репозиторий
+git push origin main
+
+Шаг 9. Теперь можно смержить ветку git-rebase в main без конфликтов и без дополнительного мерж-комита простой перемоткой:
+
+Теперь, когда история в ветке git-rebase соответствует тому, что вы хотите видеть в main, выполняем слияние  с помощью Fast-forward, что не создаст нового мерж-коммита. Выполняем следующие команды:
+
+
+Переключаемся на ветку main  
+git checkout main
+
+Убеждаемся, что наша локальная ветка main синхронизирована с удаленным репозиторием  
+git pull origin main
+
+Сливаем ветку git-rebase в main с помощью Fast-forward  
+git merge git-rebase
+
+Отправляем изменения из main в удаленный репозиторий  
+git push origin main
+
+![Image](https://github.com/Byzgaev-I/-Branching-in-Git-/blob/main/8.png)
+
+![Image](https://github.com/Byzgaev-I/-Branching-in-Git-/blob/main/9.png)
+
 
 
 

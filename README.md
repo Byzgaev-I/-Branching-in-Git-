@@ -345,4 +345,7 @@ git push origin main
 
 
 
+Ссылка на итоговый network график: https://github.com/Byzgaev-I/devops-netology/network
+
+
 

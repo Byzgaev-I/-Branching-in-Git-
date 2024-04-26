@@ -24,13 +24,13 @@ done
 Выполним следующие команды в терминале:
 
 Перейдем в каталог нашего репозитория  
-Создаем каталог branching
+Создаем каталог branching  
 mkdir branching
 
-Переходим в каталог branching
+Переходим в каталог branching  
 cd branching
 
-Создаем файл merge.sh с указанным 
+Создаем файл merge.sh с указанным   
 
 ```bash
 echo '#!/bin/bash
@@ -54,5 +54,5 @@ for param in "$*"; do
 done' > rebase.sh
 ```
 
-Делаем файлы скриптов исполняемыми
+Делаем файлы скриптов исполняемыми  
 chmod +x merge.sh rebase.sh

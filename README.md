@@ -23,7 +23,8 @@ done
 Для начала, давайте создадим каталог branching и добавим в него два файла скриптов merge.sh и rebase.sh с одинаковым содержимым, как указано в задании. 
 Выполним следующие команды в терминале:
 
-Перейдем в каталог нашего репозитория  
+Перейдем в каталог нашего репозитория 
+
 Создаем каталог branching  
 mkdir branching
 
@@ -56,3 +57,5 @@ done' > rebase.sh
 
 Делаем файлы скриптов исполняемыми  
 chmod +x merge.sh rebase.sh
+
+![Image](https://github.com/Byzgaev-I/Monitoring-System-Zabbix-1/blob/main/Авторизация.png))

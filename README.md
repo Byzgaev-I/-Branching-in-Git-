@@ -279,6 +279,12 @@ git push
 ![Image](https://github.com/Byzgaev-I/-Branching-in-Git-/blob/main/5.png)
 
 
+Merge
+Сливаем ветку git-merge в main и отправляем изменения в репозиторий, должно получиться без конфликтов:
+
+В результате получаем такую схему:
+![Image](https://github.com/Byzgaev-I/-Branching-in-Git-/blob/main/6.png)
+
 
 
 

@@ -76,3 +76,17 @@ git commit -m "prepare for merge and rebase"
 git push origin main
 
 ![Image](https://github.com/Byzgaev-I/-Branching-in-Git-/blob/main/1-1.png)
+
+**Подготовка файла merge.sh**
+Шаг 1. Создайте ветку git-merge.  
+Шаг 2. Замените в ней содержимое файла merge.sh на:  
+```bash
+#!/bin/bash
+# display command line options
+
+count=1
+for param in "$@"; do
+    echo "\$@ Parameter #$count = $param"
+    count=$(( $count + 1 ))
+done
+```

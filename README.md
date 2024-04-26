@@ -177,5 +177,20 @@ git commit -m "merge: use shift"
 git push origin git-merge
 После выполнения этих команд вы будете иметь два коммита в ветке git-merge, которые содержат изменения в файле merge.sh, и оба коммита будут отправлены в ваш удаленный репозиторий.
 
+**Изменим main**
+Шаг 1. Вернитесь в ветку main. Шаг 2. Предположим, что пока мы работали над веткой git-merge, кто-то изменил main. Для этого изменим содержимое файла rebase.sh на:
+```bash
+#!/bin/bash
+# display command line options
+
+count=1
+for param in "$@"; do
+    echo "\$@ Parameter #$count = $param"
+    count=$(( $count + 1 ))
+done
+
+echo "====="
+```
+
 
 
